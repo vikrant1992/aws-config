@@ -21,6 +21,7 @@ variable "aggregate_organization" {
 variable "config_logs_bucket" {
   description = "The S3 bucket for AWS Config logs. If you have set enable_config_recorder to false then this can be an empty string."
   type        = string
+  default     = "config-bucket-495176261960"
 }
 
 variable "config_logs_prefix" {
@@ -298,3 +299,22 @@ variable "check_ec2_imdsv2" {
   type        = bool
   default     = false
 }
+
+variable "dynamodb_autoscaling_enabled" {
+  description = "Auto Scaling is enabled on your DynamoDB tables. Optionally you can set the read and write capacity units for the table."
+  type        = bool
+  default     = true
+}
+
+variable "dynamodb_throughput_limit_check" {
+  description = "DynamoDB throughput is approaching the maximum limit for your account."
+  type        = bool
+  default     = true
+}
+
+variable "days_to_expiration" {
+  description = "days_to_expiration"
+  type        = number
+  default     = 60
+}
+
